@@ -8,7 +8,9 @@ function ProductList() {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
-
+    const dispatch = useDispatch(); 
+    
+};
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -258,12 +260,8 @@ const handleAddToCart = (product) => {
        ...prevState,
        [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
      }));
-  };
-  const ProductList = ({ products }) => { 
-    const dispatch = useDispatch(); 
-    const handleAddToCart = (product) => { 
-        dispatch(addItem(product));
-    };
+  
+ 
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -309,6 +307,6 @@ const handleAddToCart = (product) => {
 )}
     </div>
     );
-}
+
 
 export default ProductList;
