@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ProductList from './ProductList';
 import './App.css';
-import AboutUs from './AboutUs';
+import AboutUs from './AboutUs'; 
 
 function App() {
   
