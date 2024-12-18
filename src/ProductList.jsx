@@ -11,7 +11,7 @@ const ProductList = () => {
     const dispatch = useDispatch(); 
     const cartItems = useSelector((state) => state.cart.items); 
 
-};
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -261,7 +261,7 @@ const handleAddToCart = (product) => {
        ...prevState,
        [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
      }));
-  
+    };
  
     return (
         <div>
@@ -309,5 +309,5 @@ const handleAddToCart = (product) => {
     </div>
     );
 
-}
+};
 export default ProductList;
