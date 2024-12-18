@@ -255,13 +255,22 @@ const ProductList = () => {
   };
 
   
-const handleAddToCart = (product) => {
-    dispatch(addItem(product));
+  const handleAddToCart = (product) => {
+    dispatch(
+      addItem({
+        name: product.name,
+        cost: Number(product.cost), // Ensure cost is a number
+        image: product.image,
+        quantity: 1, // Default quantity
+      })
+    );
+    
     setAddedToCart((prevState) => ({
-       ...prevState,
-       [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
-     }));
-    };
+      ...prevState,
+      [product.name]: true, // Set the product name as key and value as true
+    }));
+  };
+  
  
     return (
         <div>
@@ -294,7 +303,7 @@ const handleAddToCart = (product) => {
                 <img className="product-image" src={plant.image} alt={plant.name} />
                 <div className="product-title">{plant.name}</div>
                 {/*Similarly like the above plant.name show other details like description and cost*/}
-                <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart {addedToCart[plant.name] ? 'Added' : 'Add to Cart'}</button>
+                <button  className="product-button" onClick={() => handleAddToCart(plant)}>{addedToCart[plant.name] ? 'Added' : 'Add to Cart'}</button>
 
             </div>
             ))}
